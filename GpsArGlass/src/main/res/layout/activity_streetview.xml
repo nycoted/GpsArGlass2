@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Street View Crosswalk container -->
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalkStreetView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Bouton retour -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="@android:color/transparent"
+        android:contentDescription="Retour"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:padding="8dp" />
+
+    <!-- Overlay info -->
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="6dp"
+        android:text="StreetView actif"
+        android:textColor="#FFFFFF"
+        android:background="#AA000000"
+        android:textSize="16sp" />
+
+</RelativeLayout>
+

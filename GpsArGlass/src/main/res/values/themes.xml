@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Thème principal Material redirigé vers Holo -->
+    <style name="Theme.Material" parent="android:Theme.Holo.Light.NoActionBar"/>
+
+    <!-- Variante sombre -->
+    <style name="Theme.Material.Dark" parent="android:Theme.Holo"/>
+
+    <!-- Variante pleine écran -->
+    <style name="Theme.Material.NoActionBar" parent="android:Theme.Holo.Light.NoActionBar"/>
+
+    <!-- Variante sombre sans ActionBar -->
+    <style name="Theme.Material.Dark.NoActionBar" parent="android:Theme.Holo.NoActionBar"/>
+
+    <!-- Variante Dialog -->
+    <style name="Theme.Material.Dialog" parent="android:Theme.Holo.Dialog"/>
+
+    <!-- Variante Dialog sans ActionBar -->
+    <style name="Theme.Material.Dialog.NoActionBar" parent="android:Theme.Holo.Dialog.NoActionBar"/>
+
+    <!-- Variante Material.Light redirigée -->
+    <style name="Theme.Material.Light" parent="android:Theme.Holo.Light"/>
+    <style name="Theme.Material.Light.NoActionBar" parent="android:Theme.Holo.Light.NoActionBar"/>
+    <style name="Theme.Material.Light.Dialog" parent="android:Theme.Holo.Light.Dialog"/>
+    <style name="Theme.Material.Light.Dialog.NoActionBar" parent="android:Theme.Holo.Light.Dialog.NoActionBar"/>
+
+</resources>

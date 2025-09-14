@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Gps AR Glass</string>
+    <string name="intro_text">Swipe edge to exit the map. Dites "bus", "train" ou "Streetview" pour tester.</string>
+</resources>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GpsARGlass Map (Embed)</title>
+    <style>
+    html, body { height:100%; margin:0; padding:0; background:#000; }
+    #wrap { position:relative; width:100%; height:100%; overflow:hidden; }
+    #mapFrame { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    /* Petit bandeau debug + boutons  */
+    #hud { position:absolute; top:6px; left:6px; right:6px; z-index:10;
+           font:14px/1.3 Roboto, Arial, sans-serif; color:#0f0; }
+    .bar { background:rgba(0,0,0,0.6); padding:6px 8px; border-radius:6px; }
+    #btns { margin-top:6px; }
+    button { margin-right:6px; padding:6px 10px; border-radius:6px; border:0; }
+  </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="hud">
+        <div class="bar" id="dbg">init…</div>
+        <div class="bar" id="btns">
+            <button onclick="centerOn(48.8584,2.2945,15)">📍 Tour Eiffel</button>
+            <button onclick="openSV()">🎥 Street View</button>
+            <button onclick="reloadMyLocation()">📡 Ma position</button>
+        </div>
+    </div>
+
+    <!-- IFRAME Google Maps Embed -->
+    <iframe id="mapFrame"
+            src="https://www.google.com/maps/embed/v1/place?key=%API_KEY%&q=Tour+Eiffel,Paris+France&zoom=15"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<script>
+  // --- util ---
+  function log(s){
+    try{
+      console.log('[MAP]', s);
+      document.getElementById('dbg').textContent = s;
+    }catch(e){}
+  }
+
+  var iframe = document.getElementById('mapFrame');
+  var curLat = 48.8584, curLng = 2.2945, curZoom = 14;
+
+  function setSrc(url){
+    iframe.src = url;
+    log('load: ' + url.substring(0, 96) + '…');
+  }
+
+  function centerOn(lat,lng,zoom){
+    curLat = lat; curLng = lng; if (zoom) curZoom = zoom;
+    var url = 'https://www.google.com/maps/embed/v1/view'
+            + '?key=%API_KEY%'
+            + '&center=' + lat + ',' + lng
+            + '&zoom=' + curZoom
+            + '&maptype=roadmap';
+    setSrc(url);
+
+    // Notifier Android si dispo
+    if (window.Android && Android.onPositionChanged){
+      Android.onPositionChanged(lat + ',' + lng);
+    }
+  }
+
+  function openSV(){
+    if (window.Android && Android.openStreetView){
+      // 🔹 Appel Android natif
+      Android.openStreetView(curLat, curLng);
+    } else {
+      // 🔹 Fallback: Street View embarqué
+      var url = 'https://www.google.com/maps/embed/v1/streetview'
+              + '?key=%API_KEY%&location=' + curLat + ',' + curLng
+              + '&heading=0&pitch=0&fov=90';
+      setSrc(url);
+    }
+  }
+
+  // Géoloc HTML5
+  function reloadMyLocation(){
+    try{
+      if(!navigator.geolocation){ log('géoloc indisponible'); return; }
+      navigator.geolocation.getCurrentPosition(function(pos){
+        var lat = pos.coords.latitude, lng = pos.coords.longitude;
+        curLat = lat; curLng = lng;
+        centerOn(lat, lng, 16);
+      }, function(err){
+        log('géoloc erreur: ' + err.code);
+      }, { enableHighAccuracy:true, maximumAge:10000, timeout:8000 });
+    }catch(e){ log('géoloc exception'); }
+  }
+
+  // Premier affichage
+  log('prêt – carte embarquée (Embed API)');
+  // Optionnel: tenter la géoloc auto
+  setTimeout(reloadMyLocation, 500);
+
+  // ✅ Fonction pour changer la position de la carte depuis Android
+  function updateMap(lat, lng){
+    var url = 'https://www.google.com/maps/embed/v1/view'
+            + '?key=%API_KEY%'
+            + '&center=' + lat + ',' + lng
+            + '&zoom=15'
+            + '&maptype=roadmap';
+    setSrc(url);
+  }
+
+  // Vérification pont Android
+  if (typeof Android !== "undefined") {
+    console.log("Bridge Android dispo ✔");
+  } else {
+    console.log("Bridge Android NON dispo ❌");
+  }
+</script>
+</body>
+</html>
+
+

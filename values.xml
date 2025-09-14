@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Messages par défaut -->
+    <string name="unsupported_store_message">The application stores are not supported</string>
+    <string name="updating_chrome">Updating Chrome...</string>
+    <string name="week_picker_dialog_title">Select week</string>
+    <string name="xwalk_cancel">Cancel</string>
+    <string name="xwalk_close">Close</string>
+    <string name="xwalk_continue">Continue</string>
+    <string name="xwalk_get_crosswalk">Get Crosswalk</string>
+    <string name="xwalk_retry">Retry</string>
+
+    <!-- Styles corrigés compatibles API 19 -->
+    <style name="ButtonCompat" parent="ButtonCompatBase">
+        <item name="android:background">#CCCCCC</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
+    <style name="ButtonCompatBase">
+        <!-- API 19 ne supporte pas backgroundTint / elevation -->
+        <item name="android:background">@drawable/button_compat_shape</item>
+    </style>
+
+</resources>

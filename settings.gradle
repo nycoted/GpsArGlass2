@@ -1,0 +1,4 @@
+rootProject.name = "Gps AR Glass"
+include ':GpsArGlass'
+
+include ':Glass Stub'

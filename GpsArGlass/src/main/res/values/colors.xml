@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs de base pour compatibilité Material -->
+    <color name="colorPrimary">#3F51B5</color>   <!-- Bleu par défaut -->
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>   <!-- Rose accent -->
+
+    <!-- Couleurs supplémentaires pour éviter d’autres erreurs -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorForeground">#000000</color>
+    <color name="colorControlNormal">#757575</color>
+    <color name="colorControlActivated">#3F51B5</color>
+    <color name="colorControlHighlight">#FF4081</color>
+</resources>

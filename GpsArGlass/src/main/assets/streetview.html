@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GpsARGlass StreetView (Embed)</title>
+    <style>
+    html, body { height:100%; margin:0; padding:0; background:#000; }
+    #wrap { position:relative; width:100%; height:100%; overflow:hidden; }
+    #svFrame { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    #hud { position:absolute; top:6px; left:6px; right:6px; z-index:10;
+           font:14px/1.3 Roboto, Arial, sans-serif; color:#0f0; }
+    .bar { background:rgba(0,0,0,0.6); padding:6px 8px; border-radius:6px; }
+    #btns { margin-top:6px; }
+    button { margin-right:6px; padding:6px 10px; border-radius:6px; border:0; }
+  </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="hud">
+        <div class="bar" id="dbg">init StreetView…</div>
+        <div class="bar" id="btns">
+            <button onclick="resetSV()">📍 Réinitialiser</button>
+            <button onclick="changeHeading(90)">➡️ Tête 90°</button>
+            <button onclick="changeHeading(180)">⬇️ Tête 180°</button>
+            <button onclick="reloadMyLocation()">📡 Ma position</button>
+        </div>
+    </div>
+
+    <!-- IFRAME Street View Embed -->
+    <iframe id="svFrame"
+            src="https://www.google.com/maps/embed/v1/streetview?key=%API_KEY%&location=%LAT%,%LNG%&heading=0&pitch=0&fov=90"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<script>
+  // --- util ---
+  function log(s){
+    try{
+      console.log('[SV]', s);
+      document.getElementById('dbg').textContent = s;
+    }catch(e){}
+  }
+
+  var iframe = document.getElementById('svFrame');
+  var curLat = %LAT%, curLng = %LNG%;
+  var curHeading = 0, curPitch = 0, curFov = 90;
+
+  function setSrc(url){
+    iframe.src = url;
+    log('load: ' + url.substring(0, 96) + '…');
+  }
+
+  function loadSV(lat, lng, heading, pitch, fov){
+    curLat = lat; curLng = lng;
+    if (heading !== undefined) curHeading = heading;
+    if (pitch !== undefined) curPitch = pitch;
+    if (fov !== undefined) curFov = fov;
+    var url = 'https://www.google.com/maps/embed/v1/streetview'
+            + '?key=%API_KEY%'
+            + '&location=' + curLat + ',' + curLng
+            + '&heading=' + curHeading
+            + '&pitch=' + curPitch
+            + '&fov=' + curFov;
+    setSrc(url);
+    // notifier Android
+    if (window.Android && Android.onPOVChanged){
+      Android.onPOVChanged(curHeading + ',' + curPitch);
+    }
+    if (window.Android && Android.onPositionChanged){
+      Android.onPositionChanged(curLat + ',' + curLng);
+    }
+  }
+
+  function resetSV(){
+    loadSV(curLat, curLng, 0, 0, 90);
+  }
+
+  function changeHeading(h){
+    loadSV(curLat, curLng, h, curPitch, curFov);
+  }
+
+  // ✅ Fonction pour mise à jour depuis Android
+  function updateSV(lat, lng){
+    loadSV(lat, lng, curHeading, curPitch, curFov);
+  }
+
+  // ✅ Géoloc HTML5
+  function reloadMyLocation(){
+    try{
+      if(!navigator.geolocation){ log('géoloc indisponible'); return; }
+      navigator.geolocation.getCurrentPosition(function(pos){
+        var lat = pos.coords.latitude, lng = pos.coords.longitude;
+        loadSV(lat, lng, curHeading, curPitch, curFov);
+      }, function(err){
+        log('géoloc erreur: ' + err.code);
+      }, { enableHighAccuracy:true, maximumAge:10000, timeout:8000 });
+    }catch(e){ log('géoloc exception'); }
+  }
+
+  // Premier affichage
+  log('prêt – StreetView Embed initialisé');
+  // 🔹 Tentative géoloc auto au lancement
+  setTimeout(reloadMyLocation, 500);
+
+  if (typeof Android !== "undefined") {
+    console.log("Bridge Android dispo ✔");
+  } else {
+    console.log("Bridge Android NON dispo ❌");
+  }
+</script>
+</body>
+</html>
+
+
+

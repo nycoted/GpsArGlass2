@@ -1,0 +1,14 @@
+<triggers xmlns:android="http://schemas.android.com/apk/res/android">
+    <trigger keyword="combien de temps avant le bus">
+        <intent action="com.example.ACTION_BUS_TIME" />
+    </trigger>
+    <trigger keyword="où est ce que je suis">
+        <intent action="com.example.ACTION_LOCATION" />
+    </trigger>
+    <trigger keyword="zoom avant">
+        <intent action="com.example.ACTION_ZOOM_IN" />
+    </trigger>
+    <trigger keyword="zoom arrière">
+        <intent action="com.example.ACTION_ZOOM_OUT" />
+    </trigger>
+</triggers>

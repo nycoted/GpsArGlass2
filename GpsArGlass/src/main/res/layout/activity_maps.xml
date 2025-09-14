@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Vue Crosswalk pour Google Maps -->
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalkMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Flèche centrale (orientation StreetView) -->
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:src="@android:drawable/arrow_up_float"
+        android:contentDescription="Flèche d'orientation" />
+
+    <!-- Barre de boutons overlay en bas -->
+    <LinearLayout
+        android:id="@+id/controlsBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrow"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="#AA000000"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <!-- Bouton BUS -->
+        <ImageButton
+            android:id="@+id/btn_bus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Bus"
+            android:src="@android:drawable/ic_menu_directions" />
+
+        <!-- Bouton TRAIN -->
+        <ImageButton
+            android:id="@+id/btn_train"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Train"
+            android:src="@android:drawable/ic_menu_myplaces" />
+
+        <!-- Bouton STREETVIEW -->
+        <ImageButton
+            android:id="@+id/btn_streetview"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="StreetView"
+            android:src="@android:drawable/ic_menu_mapmode" />
+
+        <!-- Bouton VOIX -->
+        <ImageButton
+            android:id="@+id/btn_micro"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Commande vocale"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+    </LinearLayout>
+
+</RelativeLayout>

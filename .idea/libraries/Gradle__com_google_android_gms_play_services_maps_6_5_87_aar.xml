@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-maps:6.5.87@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f028a883de699c9c3dd9d20ac230b1bb/play-services-maps-6.5.87/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f028a883de699c9c3dd9d20ac230b1bb/play-services-maps-6.5.87/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f028a883de699c9c3dd9d20ac230b1bb/play-services-maps-6.5.87/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

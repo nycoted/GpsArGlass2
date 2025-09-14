@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: :xwalk_core_library-23.53.589.4:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4c1644be348953675f72a9aebdb795f6/xwalk_core_library-23.53.589.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4c1644be348953675f72a9aebdb795f6/xwalk_core_library-23.53.589.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4c1644be348953675f72a9aebdb795f6/xwalk_core_library-23.53.589.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4c1644be348953675f72a9aebdb795f6/xwalk_core_library-23.53.589.4/jars/libs/xwalk_core_library.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

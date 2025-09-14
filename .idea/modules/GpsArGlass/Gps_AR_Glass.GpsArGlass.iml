@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":GpsArGlass" external.linked.project.path="$MODULE_DIR$/../../../GpsArGlass" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="Gps AR Glass" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":GpsArGlass" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.6.4" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.6.4" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GpsArGlass/src/main/res;file://$MODULE_DIR$/../../../GpsArGlass/src/debug/res;file://$MODULE_DIR$/../../../GpsArGlass/build/generated/res/rs/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GpsArGlass/src/androidTest/res;file://$MODULE_DIR$/../../../GpsArGlass/src/androidTestDebug/res;file://$MODULE_DIR$/../../../GpsArGlass/build/generated/res/rs/androidTest/debug" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../../GpsArGlass/build/intermediates/javac/debug/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../GpsArGlass/build/intermediates/javac/debugUnitTest/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../GpsArGlass">
+      <sourceFolder url="file://$MODULE_DIR$/../../../GpsArGlass/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../GpsArGlass/src/debug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../GpsArGlass/src/main/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../GpsArGlass/src/main/res" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../GpsArGlass/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../GpsArGlass/build" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:21.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location:6.5.87@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps:6.5.87@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable:6.5.87@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:6.5.87@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4:21.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.maps.android:android-maps-utils:0.3.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: :xwalk_core_library-23.53.589.4:@aar" level="project" />
+    <orderEntry type="module" module-name="Gps_AR_Glass.Glass_Stub" />
+  </component>
+</module>
